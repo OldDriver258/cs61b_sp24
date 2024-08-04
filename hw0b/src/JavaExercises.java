@@ -1,3 +1,13 @@
+/*
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2024-07-29 17:31:39
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-08-04 12:44:53
+ * @FilePath: \skeleton-sp24\hw0b\src\JavaExercises.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+import static com.google.common.truth.Truth.assertThat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +16,8 @@ public class JavaExercises {
     /** Returns an array [1, 2, 3, 4, 5, 6] */
     public static int[] makeDice() {
         // TODO: Fill in this function.
-        return null;
+        int[] dice = {1, 2, 3, 4, 5, 6};
+        return dice;
     }
 
     /** Returns the order depending on the customer.
@@ -15,14 +26,39 @@ public class JavaExercises {
      *  In any other case, return an empty String[] of size 3. */
     public static String[] takeOrder(String customer) {
         // TODO: Fill in this function.
-        return null;
+        String[] empty = {null, null, null};
+
+        if (customer.equals("Ergun")) {
+            String[] order = {"beyti", "pizza", "hamburger", "tea"};
+            return order;
+        }
+
+        if (customer.equals("Erik")) {
+            String[] order = {"sushi", "pasta", "avocado", "coffee"};
+            return order;
+        }
+        return empty;
     }
 
     /** Returns the positive difference between the maximum element and minimum element of the given array.
      *  Assumes array is nonempty. */
     public static int findMinMax(int[] array) {
         // TODO: Fill in this function.
-        return 0;
+        int max, min;
+
+        assertThat(array.length != 0);
+
+        max = min = array[0];
+        for (int i : array) {
+            if (i > max) {
+                max = i;
+            }
+            if (i < min) {
+                min = i;
+            }
+        }
+
+        return max - min;
     }
 
     /**
@@ -39,7 +75,19 @@ public class JavaExercises {
 
     private static List<Integer> hailstoneHelper(int x, List<Integer> list) {
         // TODO: Fill in this function.
-        return null;
+        list.add(x);
+
+        if (x == 1) {
+            return list;
+        }
+
+        if (x % 2 != 0) {       // odd
+            x = x * 3 + 1;
+        } else {                // even
+            x = x / 2;
+        }
+
+        return hailstoneHelper(x, list);
     }
 
 }
